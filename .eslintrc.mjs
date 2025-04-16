@@ -12,6 +12,6 @@ module.exports = {
     'node_modules/',
     'dist/',
     'build/',
-    '.eslintrc.js'
+    '.eslintrc.mjs'
   ],
 };

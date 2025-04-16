@@ -161,17 +161,20 @@ describe('basic test', () => {
 
       // 수량을 10번 증가시키기
       for (let i=0; i < 10; i++) {
+        console.log('i:',i)
         increaseBtn.click();
       }
 
       // 11번째 클릭 시 재고 부족 알림이 표시되어야 함
       increaseBtn.click();
 
+      console.log('?')
       // 재고 부족 알림이 표시되었는지 확인
       expect(window.alert).toHaveBeenCalledWith(expect.stringContaining('재고가 부족합니다'));
 
       // 장바구니의 상품 수량이 10개인지 확인
       const itemQuantity=cartDisp.querySelector('#p5 span').textContent;
+      console.log('itemQuantity:',itemQuantity)
       expect(itemQuantity).toContain('x 10');
 
       // 재고 상태 정보에 해당 상품이 재고 부족으로 표시되는지 확인

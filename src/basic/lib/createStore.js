@@ -1,4 +1,6 @@
-const createStore = (initialState) => {
+import rootReducer from "../store/reducers/index.js";
+
+const createStore = (initialState, rootReducer = null) => {
   // 상태 (클로저 내부에서 유지됨)
   let state = { ...initialState };
 
@@ -31,10 +33,22 @@ const createStore = (initialState) => {
   // 상태 조회 함수
   const getState = () => ({ ...state });
 
+  // 액션 디스패치 함수
+  const dispatch = (action) => {
+    if (!rootReducer) {
+      return action;
+    }
+
+    const newState = rootReducer(state, action);
+    setState(newState);
+    return action;
+  };
+
   return {
     getState,
     setState,
     subscribe,
+    dispatch
   };
 };
 

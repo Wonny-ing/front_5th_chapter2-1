@@ -1,12 +1,7 @@
-import { productInitialState } from './product';
-import { cartInitialState } from './cart';
 import createStore from "../lib/createStore.js";
+import rootReducer, {initialState} from "./reducers/index.js";
 
-const initialState = {
-  ...productInitialState,
-  ...cartInitialState
-};
-
-const store = createStore(initialState);
+// 스토어 생성
+const store = createStore(initialState, rootReducer);
 
 export default store;
