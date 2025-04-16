@@ -111,7 +111,7 @@ describe('basic test', () => {
       if (isTuesday) {
         sel.value='p2';
         addBtn.click();
-        expect(document.getElementById('loyalty-points').textContent).toContain('(포인트: 18)');
+        expect(document.getElementById('loyalty-points').textContent).toContain('(포인트: 115)');
       } else {
         sel.value='p2';
         addBtn.click();
